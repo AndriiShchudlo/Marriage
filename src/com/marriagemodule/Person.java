@@ -57,4 +57,14 @@ public class Person {
     public void setLoveHalf(Person loveHalf) {
         this.loveHalf = loveHalf;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", sex=" + sex +
+                ", age=" + age +
+                ", married=" + married +
+                '}';
+    }
 }
