@@ -8,12 +8,15 @@ public class Main {
         Person ira = new Person("ira", Sex.MALE, 17, false);
         Person anton = new Person("anton", Sex.FEMALE, 17, false);
 
-        Person vira = new Person("vira", Sex.MALE, 17, true);
-        Person vova = new Person("Vova", Sex.FEMALE, 17, false);
+        Person vira = new Person("vira", Sex.MALE, 17, false);
+        Person vova = new Person("vova",Sex.FEMALE,25,true);
 
-        boolean  status = MarriageModule.marriageModule(andriy, marta);
-        boolean  status1 = MarriageModule.marriageModule(ira, anton);
-        boolean  status2 = MarriageModule.marriageModule(ira, anton);
+        MarriageModule mariage = new MarriageModule();
+
+        boolean  status = mariage.marriageModule(andriy, marta);
+        boolean  status1 = mariage.marriageModule(ira, anton);
+        boolean  status2 = mariage.marriageModule(vira, vova);
+
         System.out.println(status);
         System.out.println(status1);
         System.out.println(status2);

@@ -1,24 +1,27 @@
 package com.marriagemodule;
 
 public class MarriageModule {
-    public static boolean marriageModule(Person firstPerson, Person secondPerson) {
+    public  boolean marriageModule(Person firstPerson, Person secondPerson) {
         int minAgeFemale = 17;
         int minAgeMale = 18;
         int girlAge;
         int boyAge;
-        if (firstPerson.married == true || secondPerson.married == true || firstPerson.sex == secondPerson.sex)
+
+        if (firstPerson.isMarried() || secondPerson.isMarried() || firstPerson.getSex() == secondPerson.getSex())
             return false;
 
-        if (firstPerson.sex == Sex.MALE) {
-            boyAge = firstPerson.age;
-            girlAge = secondPerson.age;
+        if (firstPerson.getSex() == Sex.MALE) {
+            boyAge = firstPerson.getAge();
+            girlAge = secondPerson.getAge();
         } else {
-            girlAge = firstPerson.age;
-            boyAge = secondPerson.age;
+            girlAge = firstPerson.getAge();
+            boyAge = secondPerson.getAge();
         }
         if (girlAge >= minAgeFemale & boyAge >= minAgeMale) {
-            firstPerson.married = true;
-            secondPerson.married = true;
+            firstPerson.setMarried(true);
+            secondPerson.setMarried(true);
+            firstPerson.setLoveHalf(secondPerson);
+            secondPerson.setLoveHalf(firstPerson);
             return true;
         }
         return false;
