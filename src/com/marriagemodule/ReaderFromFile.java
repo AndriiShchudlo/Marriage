@@ -16,39 +16,12 @@ import java.io.File;
 
 public class ReaderFromFile {
 
-//    protected List<Person> txtReader() {
-//        List<String> listDateOfPersons = new ArrayList<>();
-//
-//        try {
-//            BufferedReader br = new BufferedReader(new FileReader("/home/andriis/IdeaProjects/MerriageModul/files/persons.txt"));
-//            String line;
-//            while ((line = br.readLine()) != null) {
-//                listDateOfPersons.add(line);
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//        List<Person> persons = new ArrayList<>();
-//
-//        for (int i = 0; i < listDateOfPersons.size(); i++) {
-//            String person = listDateOfPersons.get(i);
-//            String[] datePerson = person.split(",");
-//            String name = datePerson[0];
-//            Sex sex = Sex.valueOf(datePerson[1]);
-//            int age = Integer.valueOf(datePerson[2]);
-//            boolean marriage = Boolean.valueOf(datePerson[3]);
-//            persons.add(new Person(name, sex, age, marriage));
-//        }
-//
-//        return persons;
-//
-//    }
-
     protected List<Person> txtReader() {
         List<Person> persons = new ArrayList<>();
         try {
             BufferedReader br = new BufferedReader(new FileReader("/home/andriis/IdeaProjects/MerriageModul/files/persons.txt"));
             String line;
+
             while ((line = br.readLine()) != null) {
                 String[] a = line.split(",");
                 for (int i = 0; i < a.length; i+=4) {
