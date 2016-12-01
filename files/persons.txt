@@ -1,0 +1,4 @@
+eric,MALE,25,false
+angela,FEMALE,22,false
+igor,MALE,33,false
+Anna,FEMALE,25,false 

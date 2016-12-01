@@ -20,7 +20,7 @@ public class ReaderFromFile {
         List<String> listDateOfPersons = new ArrayList<>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("/home/andriis/Documents/persons.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("/home/andriis/IdeaProjects/MerriageModul/files/persons.txt"));
             String line;
             while ((line = br.readLine()) != null) {
                 listDateOfPersons.add(line);
@@ -47,7 +47,7 @@ public class ReaderFromFile {
     protected List<Person> xmlReader() {
         List<Person> persons = new ArrayList<>();
         try {
-            File xmlFile = new File("/home/andriis/Documents/persons.xml");
+            File xmlFile = new File("/home/andriis/IdeaProjects/MerriageModul/files/persons.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(xmlFile);

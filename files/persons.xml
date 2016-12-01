@@ -1,0 +1,14 @@
+<company>
+	<staff person="oleg">
+ 		<name>oleh</name>
+		<Sex>FEMALE</Sex>
+		<age>20</age>
+		<marriage>false</marriage>
+	</staff>
+	<staff person="olia">
+		<name>olia</name>
+		<Sex>MALE</Sex>
+		<age>21</age>
+		<marriage>false</marriage>
+	</staff>
+</company>
