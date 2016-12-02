@@ -2,7 +2,6 @@ package com.marriagemodule;
 
 
 import com.readFromFileModule.ReaderFromFile;
-
 import java.util.List;
 
 public class Main {

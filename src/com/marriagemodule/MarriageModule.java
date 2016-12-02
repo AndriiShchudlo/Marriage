@@ -1,14 +1,14 @@
 package com.marriagemodule;
 
 public class MarriageModule {
-    private int minAgeFemale = 17;
-    private int minAgeMale = 18;
-    private int girlAge;
-    private int boyAge;
+    private static  final  int minAgeFemale = 17;
+    private static final int minAgeMale = 18;
 
     public boolean marriageModule(Person firstPerson, Person secondPerson) {
         if (firstPerson.isMarried() || secondPerson.isMarried() || firstPerson.getSex() == secondPerson.getSex())
             return false;
+        int girlAge;
+        int boyAge;
         if (firstPerson.getSex() == Sex.MALE) {
             boyAge = firstPerson.getAge();
             girlAge = secondPerson.getAge();

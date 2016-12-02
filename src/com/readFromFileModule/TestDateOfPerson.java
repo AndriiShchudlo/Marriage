@@ -2,7 +2,8 @@ package com.readFromFileModule;
 
 import com.marriagemodule.Sex;
 
-public class TestDateOfPerson {
+public final class TestDateOfPerson {
+    private int age;
     protected boolean testDateOfPerson(String[] a) {
 
         if (a.length != 4)
@@ -17,9 +18,9 @@ public class TestDateOfPerson {
                 isSex = true;
             }
         }
-        if (isSex == false) {return false;}
+        if (!isSex) {return false;}
         try {
-            int age = Integer.parseInt(a[2]);
+            age = Integer.parseInt(a[2]);
         } catch (NumberFormatException nfe) {
             return false;
         }
