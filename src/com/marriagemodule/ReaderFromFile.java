@@ -1,40 +1,43 @@
 package com.marriagemodule;
 
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReaderFromFile {
-   private List<String> listDateOfPersons;
-   private String txt = "txt";
-   private String xml = "xml";
+    private List<String> listDateOfPersons;
+    private String extensionTxt = "txt";
+    private String extensionXml = "xml";
 
-    public List<Person> readFromFile(String pathFile){
+    protected List<Person> readFromFile(String pathFile) {
         ReaderFromFile reader = new ReaderFromFile();
         TXTReader txtread = new TXTReader();
         XMLReader xmlread = new XMLReader();
         File x = new File(pathFile);
         String resultExtension = getFileExtension(x);
 
-        if (resultExtension.equals(txt)){ listDateOfPersons = txtread.txtReader(pathFile); }
-       else if (resultExtension.equals(xml)) {listDateOfPersons = xmlread.xmlReader(pathFile);}
+        if (resultExtension.equals(extensionTxt)) {
+            listDateOfPersons = txtread.txtReader(pathFile);
+        } else if (resultExtension.equals(extensionXml)) {
+            listDateOfPersons = xmlread.xmlReader(pathFile);
+        }
+        System.out.println(listDateOfPersons);
         List<Person> persons = reader.createListPersons(listDateOfPersons);
         return persons;
     }
 
-    public  String getFileExtension(File file) {
+    private String getFileExtension(File file) {
         String fileName = file.getName();
-        if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
-            return fileName.substring(fileName.lastIndexOf(".")+1);
+        if (fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
+            return fileName.substring(fileName.lastIndexOf(".") + 1);
         else return "";
     }
 
-    public List<Person> createListPersons(List<String> file) {
+    private List<Person> createListPersons(List<String> file) {
         List<Person> persons = new ArrayList<>();
         List<String> dateOnePerson = new ArrayList<>();
         for (int i = 0; i < file.size(); i++) {
-             dateOnePerson.add(file.get(i));
+            dateOnePerson.add(file.get(i));
             if (dateOnePerson.size() == 4) {
                 String name = dateOnePerson.get(0);
                 Sex sex = Sex.valueOf(dateOnePerson.get(1));
@@ -44,10 +47,10 @@ public class ReaderFromFile {
                 dateOnePerson.clear();
             }
         }
-        return  persons;
+        return persons;
     }
 
-    }
+}
 
 
 

@@ -1,7 +1,7 @@
 package com.marriagemodule;
 
 import java.io.BufferedReader;
-import java.io.File;
+
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +16,10 @@ public class TXTReader {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] a = line.split(",");
-                boolean result =  testDate.testDateOfPerson(a);
-                if (result == false){continue;}
+                boolean result = testDate.testDateOfPerson(a);
+                if (result == false) {
+                    continue;
+                }
                 for (int i = 0; i < a.length; i++) {
                     listDateOfPerson.add(a[i]);
                 }
@@ -25,7 +27,7 @@ public class TXTReader {
         } catch (Exception e) {
             System.out.println(e);
         }
-            return listDateOfPerson;
+        return listDateOfPerson;
     }
 
 
