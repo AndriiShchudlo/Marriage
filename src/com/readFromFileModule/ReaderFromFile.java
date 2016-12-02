@@ -1,4 +1,7 @@
-package com.marriagemodule;
+package com.readFromFileModule;
+
+import com.marriagemodule.Person;
+import com.marriagemodule.Sex;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -8,8 +11,11 @@ public class ReaderFromFile {
     private List<String> listDateOfPersons;
     private String extensionTxt = "txt";
     private String extensionXml = "xml";
+    private List<Person> persons = new ArrayList<>();
+    private List<String> dateOnePerson = new ArrayList<>();
 
-    protected List<Person> readFromFile(String pathFile) {
+
+    public List<Person> readFromFile(String pathFile) {
         ReaderFromFile reader = new ReaderFromFile();
         TXTReader txtread = new TXTReader();
         XMLReader xmlread = new XMLReader();
@@ -34,8 +40,6 @@ public class ReaderFromFile {
     }
 
     private List<Person> createListPersons(List<String> file) {
-        List<Person> persons = new ArrayList<>();
-        List<String> dateOnePerson = new ArrayList<>();
         for (int i = 0; i < file.size(); i++) {
             dateOnePerson.add(file.get(i));
             if (dateOnePerson.size() == 4) {

@@ -1,4 +1,4 @@
-package com.marriagemodule;
+package com.readFromFileModule;
 
 import java.io.BufferedReader;
 

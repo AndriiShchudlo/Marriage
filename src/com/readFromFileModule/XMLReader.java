@@ -1,4 +1,4 @@
-package com.marriagemodule;
+package com.readFromFileModule;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class XMLReader {
-
+    private List<String> listDateOfPerson = new ArrayList<>();
+    private TestDateOfPerson testDate = new TestDateOfPerson();
 
     protected List<String> xmlReader(String xml) {
         List<String> listDateOfPerson = null;
@@ -32,9 +33,7 @@ public class XMLReader {
     }
 
     private List<String> generationListPersons(NodeList nList) {
-        List<String> listDateOfPerson = new ArrayList<>();
-        TestDateOfPerson testDate = new TestDateOfPerson();
-        for (int i = 0; i < nList.getLength(); i++) {
+            for (int i = 0; i < nList.getLength(); i++) {
             Node nNode = nList.item(i);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 String[] a = new String[4];

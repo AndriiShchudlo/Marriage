@@ -1,10 +1,7 @@
 import com.marriagemodule.MarriageModule;
 import com.marriagemodule.Person;
-import com.marriagemodule.ReaderFromFile;
 import com.marriagemodule.Sex;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 

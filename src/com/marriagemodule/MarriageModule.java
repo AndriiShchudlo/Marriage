@@ -22,6 +22,7 @@ public class MarriageModule {
         }
         return false;
     }
+    
     private void wedding(Person firstPerson, Person secondPerson){
         firstPerson.setMarried(true);
         secondPerson.setMarried(true);
