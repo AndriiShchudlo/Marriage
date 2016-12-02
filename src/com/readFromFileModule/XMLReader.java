@@ -11,14 +11,15 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XMLReader {
+public class XMLReader implements Reader {
     private List<String> listDateOfPerson = new ArrayList<>();
     private TestDateOfPerson testDate = new TestDateOfPerson();
 
-    protected List<String> xmlReader(String xml) {
+    @Override
+    public List<String> read(String path) {
         List<String> listDateOfPerson = null;
         try {
-            File xmlFile = new File(xml);
+            File xmlFile = new File(path);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(xmlFile);

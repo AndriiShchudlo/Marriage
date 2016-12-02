@@ -5,13 +5,14 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TXTReader  {
+public class TXTReader implements Reader {
 
-    protected List<String> txtReader(String txt) {
+    @Override
+    public List<String> read(String path) {
         TestDateOfPerson testDate = new TestDateOfPerson();
         List<String> listDateOfPerson = new ArrayList<>();
         try {
-            BufferedReader br = new BufferedReader(new FileReader(txt));
+            BufferedReader br = new BufferedReader(new FileReader(path));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] a = line.split(",");

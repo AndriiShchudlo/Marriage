@@ -4,6 +4,7 @@ import com.marriagemodule.Person;
 import com.marriagemodule.Sex;
 
 import java.io.File;
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,28 +14,28 @@ public class ReaderFromFile {
     private static final String extensionXml = "xml";
     private List<Person> persons = new ArrayList<>();
     private List<String> dateOnePerson = new ArrayList<>();
-    private TXTReader txtread = new TXTReader();
-    private XMLReader xmlread = new XMLReader();
 
-    public List<Person> readFromFile(String pathFile) {
-        ReaderFromFile reader = new ReaderFromFile();
+    public List<Person> readFromFile(String filePath) {
+        Reader reader = getReader(filePath);
 
-        File x = new File(pathFile);
-        String resultExtension = getFileExtension(x);
+        listDateOfPersons = reader.read(filePath);
 
-        if (resultExtension.equals(extensionTxt)) {
-            listDateOfPersons = txtread.txtReader(pathFile);
-        } else if (resultExtension.equals(extensionXml)) {
-            listDateOfPersons = xmlread.xmlReader(pathFile);
-        } else {
-            listDateOfPersons = null;
-            System.out.println(listDateOfPersons);
-            persons = null;
-            return  persons;
-        }
         System.out.println(listDateOfPersons);
-        List<Person> persons = reader.createListPersons(listDateOfPersons);
+        List<Person> persons = createListPersons(listDateOfPersons);
         return persons;
+    }
+
+    private Reader getReader(String filePath) {
+        File file = new File(filePath);
+        String extension = getFileExtension(file);
+
+        if (extension.equals(extensionTxt))
+            return new TXTReader();
+
+        if (extension.equals(extensionXml))
+            return new XMLReader();
+
+        throw new InvalidParameterException();
     }
 
 

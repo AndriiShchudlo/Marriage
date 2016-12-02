@@ -1,7 +1,12 @@
 package com.marriagemodule;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.WeakHashMap;
+
 public class MarriageModule {
-    private static  final  int minAgeFemale = 17;
+    private static final int minAgeFemale = 17;
     private static final int minAgeMale = 18;
 
     public boolean marriageModule(Person firstPerson, Person secondPerson) {
@@ -17,16 +22,23 @@ public class MarriageModule {
             boyAge = secondPerson.getAge();
         }
         if (girlAge >= minAgeFemale & boyAge >= minAgeMale) {
-            wedding(firstPerson,secondPerson);
+            wedding(firstPerson, secondPerson);
             return true;
         }
         return false;
     }
 
-    private void wedding(Person firstPerson, Person secondPerson){
+    private void wedding(Person firstPerson, Person secondPerson) {
         firstPerson.setMarried(true);
         secondPerson.setMarried(true);
         firstPerson.setLoveHalf(secondPerson);
         secondPerson.setLoveHalf(firstPerson);
+//        try {
+//            FileWriter write = new FileWriter("/home/andriis/IdeaProjects/Marriage/files/weding.txt");
+//            write.write(StrinfirstPerson);
+//        } catch (Exception e){
+//        System.out.println(e);
+//        }
+
     }
 }

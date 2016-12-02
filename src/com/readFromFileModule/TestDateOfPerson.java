@@ -2,7 +2,7 @@ package com.readFromFileModule;
 
 import com.marriagemodule.Sex;
 
-public final class TestDateOfPerson {
+public final class TestDateOfPerson  {
     private int age;
     protected boolean testDateOfPerson(String[] a) {
 
