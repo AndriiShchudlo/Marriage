@@ -14,10 +14,12 @@ import java.util.List;
 public class XMLReader {
     ReaderFromFile reader = new ReaderFromFile();
 
-    protected void xmlReader () {
+    protected List<String> xmlReader (String xml) {
         List<String> listDateOfPerson = new ArrayList<>();
+        TestDateOfPerson testDate = new TestDateOfPerson();
+
         try {
-            File xmlFile = new File(reader.xml);
+            File xmlFile = new File(xml);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(xmlFile);
@@ -27,17 +29,24 @@ public class XMLReader {
             for (int i = 0; i < nList.getLength(); i++) {
                 Node nNode = nList.item(i);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    String[] a = new String[4];
                     Element eElement = (Element) nNode;
-                    String name = (eElement.getElementsByTagName("name").item(0).getTextContent());
-                    Sex sex = Sex.valueOf(eElement.getElementsByTagName("Sex").item(0).getTextContent());
-                    int age = Integer.valueOf(eElement.getElementsByTagName("age").item(0).getTextContent());
-                    boolean marriage = Boolean.valueOf(eElement.getElementsByTagName("marriage").item(0).getTextContent());
+                    a[0] = (eElement.getElementsByTagName("name").item(0).getTextContent());
+                    a[1] = (eElement.getElementsByTagName("Sex").item(0).getTextContent());
+                    a[2] = (eElement.getElementsByTagName("age").item(0).getTextContent());
+                    a[3] = (eElement.getElementsByTagName("marriage").item(0).getTextContent());
+                    boolean result =  testDate.testDateOfPerson(a);
+                    if (result == false){continue;}
+                for (int j = 0; j < a.length; j++) {
+                    listDateOfPerson.add(a[j]);
+                }}
 
-                }
             }
+
         } catch (Exception e) {
             System.out.println(e);
         }
-
+        return listDateOfPerson;
     }
+
 }

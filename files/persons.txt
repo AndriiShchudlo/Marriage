@@ -1,4 +1,4 @@
-eric,MALE,25,false
+eric,MALE,22,false
 angela,FEMALE,22,false
 igor,MALE,33,false
-Anna,FEMALE,25,false 
+Anna,FEMALE,25,false

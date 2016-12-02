@@ -2,24 +2,57 @@ package com.marriagemodule;
 
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReaderFromFile {
-    String txt = "/home/andriis/IdeaProjects/MerriageModul/files/persons.txt";
-    String xml = "/home/andriis/IdeaProjects/MerriageModul/files/persons.xml";
+   private List<String> listDateOfPersons;
+   private String txt = "txt";
+   private String xml = "xml";
 
-    public static void main(String[] args) {
-        TXTReader txtread = new TXTReader(txt);
+    public List<Person> readFromFile(String pathFile){
+        ReaderFromFile reader = new ReaderFromFile();
+        TXTReader txtread = new TXTReader();
         XMLReader xmlread = new XMLReader();
-        List<String> txt = txtread.txtReader();
+        File x = new File(pathFile);
+        String resultExtension = getFileExtension(x);
 
-        System.out.println(txt);
+        if (resultExtension.equals(txt)){ listDateOfPersons = txtread.txtReader(pathFile); }
+       else if (resultExtension.equals(xml)) {listDateOfPersons = xmlread.xmlReader(pathFile);}
+        List<Person> persons = reader.createListPersons(listDateOfPersons);
+        return persons;
+    }
+
+    public  String getFileExtension(File file) {
+        String fileName = file.getName();
+        if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
+            return fileName.substring(fileName.lastIndexOf(".")+1);
+        else return "";
+    }
+
+    public List<Person> createListPersons(List<String> file) {
+        List<Person> persons = new ArrayList<>();
+        List<String> dateOnePerson = new ArrayList<>();
+        for (int i = 0; i < file.size(); i++) {
+             dateOnePerson.add(file.get(i));
+            if (dateOnePerson.size() == 4) {
+                String name = dateOnePerson.get(0);
+                Sex sex = Sex.valueOf(dateOnePerson.get(1));
+                int age = Integer.valueOf(dateOnePerson.get(2));
+                boolean marriage = Boolean.valueOf(dateOnePerson.get(3));
+                persons.add(new Person(name, sex, age, marriage));
+                dateOnePerson.clear();
+            }
+        }
+        return  persons;
+    }
 
     }
 
 
 
-}
+
+
 
 
 
