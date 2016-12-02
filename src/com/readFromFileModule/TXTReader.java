@@ -1,12 +1,11 @@
 package com.readFromFileModule;
 
 import java.io.BufferedReader;
-
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TXTReader {
+public class TXTReader  {
 
     protected List<String> txtReader(String txt) {
         TestDateOfPerson testDate = new TestDateOfPerson();
@@ -17,7 +16,7 @@ public class TXTReader {
             while ((line = br.readLine()) != null) {
                 String[] a = line.split(",");
                 boolean result = testDate.testDateOfPerson(a);
-                if (result == false) {
+                if (!result) {
                     continue;
                 }
                 for (int i = 0; i < a.length; i++) {

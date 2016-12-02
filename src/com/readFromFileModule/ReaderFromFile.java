@@ -9,13 +9,12 @@ import java.util.List;
 
 public class ReaderFromFile {
     private List<String> listDateOfPersons;
-    private String extensionTxt = "txt";
-    private String extensionXml = "xml";
+    private static final String  extensionTxt = "txt";
+    private static final String extensionXml = "xml";
     private List<Person> persons = new ArrayList<>();
     private List<String> dateOnePerson = new ArrayList<>();
     private TXTReader txtread = new TXTReader();
     private XMLReader xmlread = new XMLReader();
-
 
     public List<Person> readFromFile(String pathFile) {
         ReaderFromFile reader = new ReaderFromFile();

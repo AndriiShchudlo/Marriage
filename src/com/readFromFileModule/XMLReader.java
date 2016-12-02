@@ -44,7 +44,7 @@ public class XMLReader {
                 a[2] = (eElement.getElementsByTagName("age").item(0).getTextContent());
                 a[3] = (eElement.getElementsByTagName("marriage").item(0).getTextContent());
                 boolean result = testDate.testDateOfPerson(a);
-                if (result == false) {
+                if (!result) {
                     continue;
                 }
                 for (int j = 0; j < a.length; j++) {
