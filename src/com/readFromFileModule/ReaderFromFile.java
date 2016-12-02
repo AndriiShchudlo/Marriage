@@ -13,12 +13,13 @@ public class ReaderFromFile {
     private String extensionXml = "xml";
     private List<Person> persons = new ArrayList<>();
     private List<String> dateOnePerson = new ArrayList<>();
+    private TXTReader txtread = new TXTReader();
+    private XMLReader xmlread = new XMLReader();
 
 
     public List<Person> readFromFile(String pathFile) {
         ReaderFromFile reader = new ReaderFromFile();
-        TXTReader txtread = new TXTReader();
-        XMLReader xmlread = new XMLReader();
+
         File x = new File(pathFile);
         String resultExtension = getFileExtension(x);
 
@@ -26,11 +27,17 @@ public class ReaderFromFile {
             listDateOfPersons = txtread.txtReader(pathFile);
         } else if (resultExtension.equals(extensionXml)) {
             listDateOfPersons = xmlread.xmlReader(pathFile);
+        } else {
+            listDateOfPersons = null;
+            System.out.println(listDateOfPersons);
+            persons = null;
+            return  persons;
         }
         System.out.println(listDateOfPersons);
         List<Person> persons = reader.createListPersons(listDateOfPersons);
         return persons;
     }
+
 
     private String getFileExtension(File file) {
         String fileName = file.getName();
@@ -38,6 +45,7 @@ public class ReaderFromFile {
             return fileName.substring(fileName.lastIndexOf(".") + 1);
         else return "";
     }
+
 
     private List<Person> createListPersons(List<String> file) {
         for (int i = 0; i < file.size(); i++) {
