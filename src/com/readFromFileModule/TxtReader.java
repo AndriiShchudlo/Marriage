@@ -5,15 +5,16 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TXTReader implements Reader {
+public class TxtReader implements Reader {
+
 
     @Override
-    public List<String> read(String path) {
+    public List<String> read(String path) throws Exception  {
+        List<String> personsAttributes = new ArrayList<>();
         TestDateOfPerson testDate = new TestDateOfPerson();
-        List<String> listDateOfPerson = new ArrayList<>();
-        try {
             BufferedReader br = new BufferedReader(new FileReader(path));
             String line;
+
             while ((line = br.readLine()) != null) {
                 String[] a = line.split(",");
                 boolean result = testDate.testDateOfPerson(a);
@@ -21,13 +22,11 @@ public class TXTReader implements Reader {
                     continue;
                 }
                 for (int i = 0; i < a.length; i++) {
-                    listDateOfPerson.add(a[i]);
+                    personsAttributes.add(a[i]);
                 }
             }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return listDateOfPerson;
+
+        return personsAttributes;
     }
 
 

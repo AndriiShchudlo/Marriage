@@ -11,30 +11,29 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XMLReader implements Reader {
-    private List<String> listDateOfPerson = new ArrayList<>();
-    private TestDateOfPerson testDate = new TestDateOfPerson();
+public class XmlReader implements Reader {
+    private List<String> personsAttributes = new ArrayList<>();
+
 
     @Override
-    public List<String> read(String path) {
-        List<String> listDateOfPerson = null;
-        try {
-            File xmlFile = new File(path);
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(xmlFile);
-            doc.getDocumentElement().normalize();
-            NodeList nList = doc.getElementsByTagName("Person");
-            listDateOfPerson = generationListPersons(nList);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return listDateOfPerson;
+    public List<String> read(String path) throws Exception {
+
+
+        File xmlFile = new File(path);
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(xmlFile);
+        doc.getDocumentElement().normalize();
+        NodeList nList = doc.getElementsByTagName("Person");
+        generationListPersons(nList);
+
+        return personsAttributes;
 
     }
 
-    private List<String> generationListPersons(NodeList nList) {
-            for (int i = 0; i < nList.getLength(); i++) {
+    private void generationListPersons(NodeList nList) {
+        TestDateOfPerson testDate = new TestDateOfPerson();
+        for (int i = 0; i < nList.getLength(); i++) {
             Node nNode = nList.item(i);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 String[] a = new String[4];
@@ -49,10 +48,10 @@ public class XMLReader implements Reader {
                     continue;
                 }
                 for (int j = 0; j < a.length; j++) {
-                    listDateOfPerson.add(a[j]);
+                    personsAttributes.add(a[j]);
                 }
             }
         }
-        return listDateOfPerson;
+
     }
 }
