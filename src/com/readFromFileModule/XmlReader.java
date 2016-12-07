@@ -31,6 +31,7 @@ public class XmlReader implements Reader {
 
     }
 
+
     private void generationListPersons(NodeList nList) {
         TestDateOfPerson testDate = new TestDateOfPerson();
         for (int i = 0; i < nList.getLength(); i++) {
@@ -39,10 +40,9 @@ public class XmlReader implements Reader {
                 String[] a = new String[4];
                 Element eElement = (Element) nNode;
                 a[i] = eElement.getTextContent();
-                a[0] = (eElement.getElementsByTagName("name").item(0).getTextContent());
-                a[1] = (eElement.getElementsByTagName("Sex").item(0).getTextContent());
-                a[2] = (eElement.getElementsByTagName("age").item(0).getTextContent());
-                a[3] = (eElement.getElementsByTagName("marriage").item(0).getTextContent());
+
+                addPersonAttributes(a, eElement);
+
                 boolean result = testDate.testDateOfPerson(a);
                 if (!result) {
                     continue;
@@ -52,6 +52,13 @@ public class XmlReader implements Reader {
                 }
             }
         }
+    }
+    public void addPersonAttributes(String[] attributesPerson, Element eElement) {
+
+        attributesPerson[0] = (eElement.getElementsByTagName("name").item(0).getTextContent());
+        attributesPerson[1] = (eElement.getElementsByTagName("Sex").item(0).getTextContent());
+        attributesPerson[2] = (eElement.getElementsByTagName("age").item(0).getTextContent());
+        attributesPerson[3] = (eElement.getElementsByTagName("marriage").item(0).getTextContent());
 
     }
 }
