@@ -1,8 +1,8 @@
 package main.java.com.fileReader;
 
-import main.java.com.marriagemodule.Person;
-import main.java.com.marriagemodule.Sex;
-import main.java.com.reader.ReaderProvider;
+import main.java.com.entities.Person;
+import main.java.com.entities.Sex;
+import main.java.com.fileReader.reader.ReaderProvider;
 
 import java.util.ArrayList;
 import java.util.List;

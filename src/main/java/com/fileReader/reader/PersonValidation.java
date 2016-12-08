@@ -1,10 +1,10 @@
-package main.java.com.reader;
+package main.java.com.fileReader.reader;
 
-import main.java.com.marriagemodule.*;
+import main.java.com.entities.Sex;
 
-public final class TestDateOfPerson {
-    private int age;
-    protected boolean testDateOfPerson(String[] a) {
+public class PersonValidation {
+
+    protected boolean isValidate(String[] a) {
 
         if (a.length != 4)
             return false;
@@ -14,7 +14,7 @@ public final class TestDateOfPerson {
         }
 
         try {
-            age = Integer.parseInt(a[2]);
+            int age = Integer.parseInt(a[2]);
         } catch (NumberFormatException nfe) {
             return false;
         }

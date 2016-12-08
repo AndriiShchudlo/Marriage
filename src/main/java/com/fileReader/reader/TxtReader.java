@@ -1,4 +1,4 @@
-package main.java.com.reader;
+package main.java.com.fileReader.reader;
 
 import main.java.com.fileReader.Reader;
 
@@ -13,16 +13,14 @@ public class TxtReader implements Reader {
     @Override
     public List<String> read(String path) throws Exception  {
         List<String> personsAttributes = new ArrayList<>();
-        TestDateOfPerson testDate = new TestDateOfPerson();
+        PersonValidation testDate = new PersonValidation();
             BufferedReader br = new BufferedReader(new FileReader(path));
             String line;
 
             while ((line = br.readLine()) != null) {
                 String[] a = line.split(",");
-                boolean result = testDate.testDateOfPerson(a);
-                if (!result) {
-                    continue;
-                }
+                if (!testDate.isValidate(a)) continue;
+
                 for (int i = 0; i < a.length; i++) {
                     personsAttributes.add(a[i]);
                 }
@@ -31,5 +29,5 @@ public class TxtReader implements Reader {
         return personsAttributes;
     }
 
-
+H
 }

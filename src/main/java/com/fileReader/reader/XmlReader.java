@@ -1,4 +1,4 @@
-package main.java.com.reader;
+package main.java.com.fileReader.reader;
 
 import main.java.com.fileReader.Reader;
 import org.w3c.dom.Document;
@@ -34,7 +34,7 @@ public class XmlReader implements Reader {
 
 
     private void generationListPersons(NodeList nList) {
-        TestDateOfPerson testDate = new TestDateOfPerson();
+        PersonValidation testDate = new PersonValidation();
         for (int i = 0; i < nList.getLength(); i++) {
             Node nNode = nList.item(i);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -44,7 +44,7 @@ public class XmlReader implements Reader {
 
                 addPersonAttributes(a, eElement);
 
-                boolean result = testDate.testDateOfPerson(a);
+                boolean result = testDate.isValidate(a);
                 if (!result) {
                     continue;
                 }

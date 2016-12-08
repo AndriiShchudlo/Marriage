@@ -1,7 +1,9 @@
-import main.java.com.marriagemodule.*;
-import org.junit.jupiter.api.Test;
+import main.java.com.entities.Person;
+import main.java.com.entities.Sex;
+import main.java.com.marriage.*;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertTrue;
 
 public class MarriageTest {
     @Test

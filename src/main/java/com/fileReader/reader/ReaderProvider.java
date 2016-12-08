@@ -1,4 +1,4 @@
-package main.java.com.reader;
+package main.java.com.fileReader.reader;
 
 import main.java.com.fileReader.Reader;
 

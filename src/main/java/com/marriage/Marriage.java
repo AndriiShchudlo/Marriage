@@ -1,10 +1,10 @@
-package main.java.com.marriagemodule;
+package main.java.com.marriage;
+
+import main.java.com.entities.Person;
+import main.java.com.entities.Sex;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.util.WeakHashMap;
 
 public class Marriage {
     public boolean marriageModule(Person firstPerson, Person secondPerson) {

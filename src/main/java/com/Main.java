@@ -1,6 +1,9 @@
-package main.java.com.marriagemodule;
+package main.java.com;
 
 import main.java.com.fileReader.*;
+import main.java.com.marriage.Marriage;
+import main.java.com.entities.Person;
+
 import java.util.List;
 
 public class Main {
