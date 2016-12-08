@@ -2,6 +2,7 @@ package main.java.com.marriage;
 
 import main.java.com.entities.Person;
 import main.java.com.entities.Sex;
+import main.java.com.fileReader.SettingReader;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -33,7 +34,7 @@ public class Marriage {
         firstPerson.setLoveHalf(secondPerson);
         secondPerson.setLoveHalf(firstPerson);
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter( "/home/andriis/IdeaProjects/Marriage/files/wedding.txt"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(SettingReader.WEDDING_FILE))) {
             bw.write("Love halt:");
             bw.newLine();
             bw.write(String.valueOf(firstPerson.getLoveHalf()));

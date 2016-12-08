@@ -1,13 +1,13 @@
 <company>
 	<Person person="1">
  		<name>oleh</name>
-		<Sex>FEMALE</Sex>
+		<Sex>MALE</Sex>
 		<age>20</age>
 		<marriage>false</marriage>
 	</Person>
 	<Person person="2">
 		<name>olia</name>
-		<Sex>MALE</Sex>
+		<Sex>FEMALE</Sex>
 		<age>21</age>
 		<marriage>false</marriage>
 	</Person>

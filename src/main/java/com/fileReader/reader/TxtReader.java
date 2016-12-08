@@ -10,9 +10,8 @@ import java.util.List;
 
 public class TxtReader implements Reader {
 
-
     @Override
-    public List<String> read(String path) throws Exception  {
+    public List<String> read(String path) throws Exception {
         List<String> personsAttributes = new ArrayList<>();
         PersonValidation testDate = new PersonValidation();
         BufferedReader br = new BufferedReader(new FileReader(path));
@@ -20,14 +19,8 @@ public class TxtReader implements Reader {
 
         while ((line = br.readLine()) != null) {
             String[] a = line.split(SettingReader.SEPERATOR_TXT_FILE);
+            if (!testDate.isValidate(a)) continue;
 
-
-            boolean result = testDate.isValidate(a);
-
-
-            if (!result) {
-                continue;
-            }
             for (int i = 0; i < a.length; i++) {
                 personsAttributes.add(a[i]);
             }

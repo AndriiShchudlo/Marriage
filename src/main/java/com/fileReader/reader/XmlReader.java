@@ -38,23 +38,19 @@ public class XmlReader implements Reader {
         PersonValidation testDate = new PersonValidation();
         for (int i = 0; i < nList.getLength(); i++) {
             Node nNode = nList.item(i);
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                String[] a = new String[SettingReader.COUNT_ATTRIBYTES];
-                Element eElement = (Element) nNode;
-                a[i] = eElement.getTextContent();
+            if (nNode.getNodeType() != Node.ELEMENT_NODE) continue;
+            String[] a = new String[SettingReader.COUNT_ATTRIBYTES];
+            Element eElement = (Element) nNode;
+            a[i] = eElement.getTextContent();
+            addPersonAttributes(a, eElement);
+            if (!testDate.isValidate(a)) continue;
+            for (int j = 0; j < a.length; j++) {
+                personsAttributes.add(a[j]);
 
-                addPersonAttributes(a, eElement);
-
-                boolean result = testDate.isValidate(a);
-                if (!result) {
-                    continue;
-                }
-                for (int j = 0; j < a.length; j++) {
-                    personsAttributes.add(a[j]);
-                }
             }
         }
     }
+
     public void addPersonAttributes(String[] attributesPerson, Element eElement) {
 
         attributesPerson[0] = (eElement.getElementsByTagName("name").item(0).getTextContent());
