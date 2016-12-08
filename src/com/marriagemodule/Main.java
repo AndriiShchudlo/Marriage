@@ -1,13 +1,13 @@
 package com.marriagemodule;
 
-import com.readFromFileModule.ReaderFromFile;
+import com.readFromFileModule.ReadFile;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        ReaderFromFile reader = new ReaderFromFile();
-        MarriageModule marriage = new MarriageModule();
+        ReadFile reader = new ReadFile();
+        Marriage marriage = new Marriage();
         String txtFile = "/home/andriis/IdeaProjects/Marriage/files/persons.txt";
        String xmlFile = "/home/andriis/IdeaProjects/Marriage/files/persons.xml";
   //      String fileWithoutExtension = "/home/andriis/IdeaProjects/Marriage/files/persons";

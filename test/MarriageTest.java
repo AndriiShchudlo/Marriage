@@ -1,4 +1,4 @@
-import com.marriagemodule.MarriageModule;
+import com.marriagemodule.Marriage;
 import com.marriagemodule.Person;
 import com.marriagemodule.Sex;
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,7 @@ public class MarriageTest {
         Person person1 = new Person("df", Sex.MALE, 25, false);
         Person person2 = new Person("dfgfgf", Sex.FEMALE, 25, false);
 
-        MarriageModule marriage = new MarriageModule();
+        Marriage marriage = new Marriage();
         boolean status = marriage.marriageModule(person1,person2);
         assertTrue (status);
     }

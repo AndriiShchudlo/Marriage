@@ -6,7 +6,7 @@ import com.marriagemodule.Sex;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReaderFromFile {
+public class ReadFile {
     private List<Person> persons = new ArrayList<>();
 
 

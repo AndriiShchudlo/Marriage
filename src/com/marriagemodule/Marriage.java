@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.WeakHashMap;
 
-public class MarriageModule {
+public class Marriage {
     public boolean marriageModule(Person firstPerson, Person secondPerson) {
         if (firstPerson.isMarried() || secondPerson.isMarried() || firstPerson.getSex() == secondPerson.getSex())
             return false;
