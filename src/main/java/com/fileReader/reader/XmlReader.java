@@ -1,6 +1,7 @@
 package main.java.com.fileReader.reader;
 
 import main.java.com.fileReader.Reader;
+import main.java.com.fileReader.SettingReader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -38,7 +39,7 @@ public class XmlReader implements Reader {
         for (int i = 0; i < nList.getLength(); i++) {
             Node nNode = nList.item(i);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                String[] a = new String[4];
+                String[] a = new String[SettingReader.COUNT_ATTRIBYTES];
                 Element eElement = (Element) nNode;
                 a[i] = eElement.getTextContent();
 

@@ -30,7 +30,7 @@ public class ReadFile {
         List<String> dateOnePerson = new ArrayList<>();
         for (int i = 0; i < file.size(); i++) {
             dateOnePerson.add(file.get(i));
-            if (dateOnePerson.size() != 4) continue;
+           if (dateOnePerson.size() != SettingReader.COUNT_ATTRIBYTES) continue;
             addPerson(dateOnePerson);
             dateOnePerson.clear();
         }
