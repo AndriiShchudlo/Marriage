@@ -1,4 +1,4 @@
-package com.readFromFileModule;
+package main.java.com.fileReader;
 
 import java.util.List;
 

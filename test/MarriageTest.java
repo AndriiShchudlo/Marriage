@@ -1,6 +1,4 @@
-import com.marriagemodule.Marriage;
-import com.marriagemodule.Person;
-import com.marriagemodule.Sex;
+import main.java.com.marriagemodule.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

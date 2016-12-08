@@ -1,4 +1,6 @@
-package com.readFromFileModule;
+package main.java.com.reader;
+
+import main.java.com.fileReader.Reader;
 
 import java.security.InvalidParameterException;
 

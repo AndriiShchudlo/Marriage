@@ -1,7 +1,8 @@
-package com.readFromFileModule;
+package main.java.com.fileReader;
 
-import com.marriagemodule.Person;
-import com.marriagemodule.Sex;
+import main.java.com.marriagemodule.Person;
+import main.java.com.marriagemodule.Sex;
+import main.java.com.reader.ReaderProvider;
 
 import java.util.ArrayList;
 import java.util.List;

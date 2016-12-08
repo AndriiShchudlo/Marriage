@@ -1,4 +1,4 @@
-package com.marriagemodule;
+package main.java.com.marriagemodule;
 
 
 public class Person {

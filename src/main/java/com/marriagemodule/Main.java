@@ -1,6 +1,6 @@
-package com.marriagemodule;
+package main.java.com.marriagemodule;
 
-import com.readFromFileModule.ReadFile;
+import main.java.com.fileReader.*;
 import java.util.List;
 
 public class Main {

@@ -1,6 +1,6 @@
-package com.readFromFileModule;
+package main.java.com.reader;
 
-import com.marriagemodule.Sex;
+import main.java.com.marriagemodule.*;
 
 public final class TestDateOfPerson {
     private int age;

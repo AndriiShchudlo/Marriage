@@ -1,4 +1,4 @@
-package com.marriagemodule;
+package main.java.com.marriagemodule;
 
 import java.io.BufferedWriter;
 import java.io.File;
