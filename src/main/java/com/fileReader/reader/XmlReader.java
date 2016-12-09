@@ -11,15 +11,14 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class XmlReader implements Reader {
     private List<String> personsAttributes = new ArrayList<>();
 
-
     @Override
     public List<String> read(String path) throws Exception {
-
 
         File xmlFile = new File(path);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -28,18 +27,15 @@ public class XmlReader implements Reader {
         doc.getDocumentElement().normalize();
         NodeList nList = doc.getElementsByTagName("Person");
         generationListPersons(nList);
-
         return personsAttributes;
-
     }
-
 
     private void generationListPersons(NodeList nList) {
         PersonValidation testDate = new PersonValidation();
         for (int i = 0; i < nList.getLength(); i++) {
             Node nNode = nList.item(i);
             if (nNode.getNodeType() != Node.ELEMENT_NODE) continue;
-            String[] a = new String[SettingReader.COUNT_ATTRIBYTES];
+            String[] a = new String[SettingReader.COUNT_ATTRIBUTES];
             Element eElement = (Element) nNode;
             a[i] = eElement.getTextContent();
             addPersonAttributes(a, eElement);

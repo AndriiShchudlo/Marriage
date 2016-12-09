@@ -1,0 +1,14 @@
+{
+	Person1: {
+		"name" : "mehdi",
+		"Sex" : "FEMALE",
+            	"age" : 21,
+		"marriage" : false
+        	},
+	Person1: {
+		"name" : "mehdi",
+		"Sex" : "FEMALE",
+            	"age" : 21,
+		"marriage" : false
+        	}
+}

@@ -1,5 +1,6 @@
 package main.java.com.fileReader.reader;
 
+import jdk.nashorn.internal.parser.JSONParser;
 import main.java.com.fileReader.Reader;
 import main.java.com.fileReader.SettingReader;
 
@@ -18,7 +19,7 @@ public class TxtReader implements Reader {
         String line;
 
         while ((line = br.readLine()) != null) {
-            String[] a = line.split(SettingReader.SEPERATOR_TXT_FILE);
+            String[] a = line.split(SettingReader.SEPARATOR_TXT_FILE);
             if (!testDate.isValidate(a)) continue;
 
             for (int i = 0; i < a.length; i++) {
@@ -28,6 +29,5 @@ public class TxtReader implements Reader {
 
         return personsAttributes;
     }
-
 
 }
