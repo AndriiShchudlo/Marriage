@@ -1,33 +1,32 @@
 package main.java.com.fileReader.reader;
 
-import jdk.nashorn.internal.parser.JSONParser;
 import main.java.com.fileReader.Reader;
 import main.java.com.fileReader.SettingReader;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class TxtReader implements Reader {
 
     @Override
-    public List<String> read(String path) throws Exception {
-        List<String> personsAttributes = new ArrayList<>();
-        PersonValidation testDate = new PersonValidation();
+    public List<HashMap<String, String>> read(String path) throws Exception {
+
         BufferedReader br = new BufferedReader(new FileReader(path));
-        String line;
+        List<HashMap<String, String>> hm = new ArrayList<>();
 
-        while ((line = br.readLine()) != null) {
-            String[] a = line.split(SettingReader.SEPARATOR_TXT_FILE);
-            if (!testDate.isValidate(a)) continue;
+        while (br.ready()) {
+            HashMap<String, String> attributesOfPerson = new HashMap<>();
+            String[] a = br.readLine().split(SettingReader.SEPARATOR_TXT_FILE);
 
-            for (int i = 0; i < a.length; i++) {
-                personsAttributes.add(a[i]);
-            }
+            attributesOfPerson.put("name", a[0]);
+            attributesOfPerson.put("sex", a[1]);
+            attributesOfPerson.put("age", a[2]);
+            attributesOfPerson.put("marriage", a[3]);
+            hm.add(attributesOfPerson);
         }
-
-        return personsAttributes;
+        return hm;
     }
-
 }

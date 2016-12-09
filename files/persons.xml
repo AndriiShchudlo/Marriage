@@ -8,7 +8,7 @@
 	<Person person="2">
 		<name>olia</name>
 		<Sex>FEMALE</Sex>
-		<age>21</age>
+		<age>15</age>
 		<marriage>false</marriage>
 	</Person>
 </company>

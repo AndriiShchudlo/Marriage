@@ -1,23 +1,4 @@
 eric,MALE,18,false
-angela,FEMALE,22,false
+inna,FEMALE,22,false
 igor,MALE,33,false
 Anna,FEMALE,25,false
-
-[], List<>, 
-
-
-
-{
- name: eric,
- sex: MALE,
- isMarried: false
-}
-
-null
-
-person [234, "Erik"]
-
-
-(person[0]) //id
-
-person.getValue("id") => 234

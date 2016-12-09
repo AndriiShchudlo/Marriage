@@ -1,3 +1,3 @@
 Love halt:
-Person{name='angela', sex=FEMALE, age=22, married=true}
-Person{name='eric', sex=MALE, age=18, married=true}
+Person{name='Anna', sex=FEMALE, age=25, married=true}
+Person{name='igor', sex=MALE, age=33, married=true}
