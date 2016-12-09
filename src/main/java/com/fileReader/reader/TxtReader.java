@@ -14,6 +14,7 @@ public class TxtReader implements Reader {
     @Override
     public List<HashMap<String, String>> read(String path) throws Exception {
 
+        PersonValidation testDate = new PersonValidation();
         BufferedReader br = new BufferedReader(new FileReader(path));
         List<HashMap<String, String>> hm = new ArrayList<>();
 
