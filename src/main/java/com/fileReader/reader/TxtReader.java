@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class TxtReader implements Reader {
+public class TxtReader implements Reader
+{
+
+
 
     @Override
     public List<HashMap<String, String>> read(String path) throws Exception {
