@@ -6,7 +6,7 @@ public class ThirdPrinter implements Runnable{
     public void run() {
         synchronized (this){
 
-       System.out.println("S Y N C H R O N I Z E D");
+       System.out.println("Sаппарапрапа");
         }
 
     }

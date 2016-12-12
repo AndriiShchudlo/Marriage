@@ -41,8 +41,9 @@ public class ReadFile extends Thread {
             Sex sex = Sex.valueOf(hashMap.get("sex"));
             int age = Integer.valueOf(hashMap.get("age"));
             boolean marriage = Boolean.valueOf(hashMap.get("marriage"));
-            //  persons.add(new Person(name, sex, age, marriage));
-            addPersons(name, sex, age, marriage);
+
+            synchronized (this){
+            addPersons(name, sex, age, marriage);}
 
         }
     }
